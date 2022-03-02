@@ -47,6 +47,7 @@ for i in range(3):
     ax[i].set_xlabel('Degree')
     ax[i].set_ylabel('Number of nodes')
 
+    #calculating the frequencies of each clustering coefficient (number of times it is repeated)
     frequencies = Counter(nx.clustering(largest_cc_ER).values())
     ax2[i].hist(frequencies.keys())
     ax2[i].set_xlabel('Clustering coefficient')
@@ -68,8 +69,8 @@ fig2, ax2 = plt.subplots(1, 3, figsize=(10,10), dpi=100, constrained_layout=True
 
 #arbitrary probability chosen for the watts strogatz graph 
 p = 0.3
-#generating graph 3 times
 
+#generating graph 3 times
 for i in range(3):
     #watts strogatz graph with 1000 nodes and probability p
     WS = nx.watts_strogatz_graph(num_of_nodes, k, p)
@@ -97,6 +98,7 @@ for i in range(3):
     ax[i].set_xlabel('Degree')
     ax[i].set_ylabel('Number of nodes')
         
+    #calculating the frequencies of each clustering coefficient (number of times it is repeated)    
     frequencies = Counter(nx.clustering(largest_cc_ER).values())
     ax2[i].hist(frequencies.keys())
     ax2[i].set_xlabel('Clustering coefficient')
@@ -119,14 +121,15 @@ m = num_of_edges//num_of_nodes
 
 fig, ax = plt.subplots(1,3, figsize=(10,10), dpi=100, constrained_layout=True)
 fig2, ax2 = plt.subplots(1, 3, figsize=(10,10), dpi=100, constrained_layout=True)
+
+#generating graph 3 times
 for i in range(3):
-    #Barabasi Albert graph with 1000 nodes and number of connected nodes m
+    #Barabasi Albert graph with 1000 nodes and m number of connected nodes
     BA = nx.barabasi_albert_graph(num_of_nodes, m)
     #finding the giant connected component by calculating the maximum subgraph in the Barabasi Albert graph
     largest_cc_BA = max((BA.subgraph(c) for c in nx.connected_components(BA)), key=len)
     
     #prints number of nodes and edges in the giant connected component
-    
     print(largest_cc_BA)
     
     #global clustering coefficient
