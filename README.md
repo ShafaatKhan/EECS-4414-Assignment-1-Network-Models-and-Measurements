@@ -1,6 +1,6 @@
 # EECS-4414-Assignment-1-Network-Models-and-Measurements
 
-This program generates 3 graphs for 3 different graph graph types. The graph types are: Erdős-Rényi random graph model, Watts–Strogatz small-world graph model, and Barabási–Albert preferential attachment model. 
+This program generates 3 graphs for 3 different graph types. The graph types are: Erdős-Rényi random graph model, Watts–Strogatz small-world graph model, and Barabási–Albert preferential attachment model. 
 
 The following graph measurements were reported as well:
 1) The node degree distribution of the graph (as a plot)
